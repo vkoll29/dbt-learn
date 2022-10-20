@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: customer_orders
+    description: one record per customer per product per employee.
+    columns:
+      - name: Customer
+      - name: Product
+      - name: Price
+      - name: Qty
+        description: total number of a particular product sold to a customer
+      - name: Employee
+  - name: stg_customers
+    columns:
+      - name: customerid
+        description: primary key
+        tests:
+          - unique
+          - not_null
+      - name: cust_name
+        tests:
+        - not_null
+
+  - name: stg_employees
+    columns:
+      - name: employeeid
+        description: primary key
+        tests:
+          - unique
+          - not_null
+      - name: emp_name
+        tests:
+        - not_null
+
+  - name: stg_products
+    columns:
+      - name: productid
+        description: primary key
+        tests:
+          - unique
+          - not_null
+      - name: prdct_name
+        tests:
+        - not_null
+
+
